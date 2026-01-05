@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Phone, X } from "lucide-react";
 import gsap from "gsap";
+import { siteConfig } from "@/config/siteConfig";
 
 export default function FloatingCallBtn() {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,18 +63,18 @@ export default function FloatingCallBtn() {
           </p>
           <div className="flex flex-col gap-2">
             <a
-              href="tel:+359899299825"
+              href={`tel:${siteConfig.phone1Link}`}
               className="flex items-center justify-center gap-3 w-full bg-[#1a43c4] hover:bg-[#132f8c] text-white font-bold py-3 rounded-xl transition-colors text-lg"
             >
               <Phone size={20} />
-              0899 299 825
+              {siteConfig.phone1}
             </a>
             <a
-              href="tel:+359879889800"
+              href={`tel:${siteConfig.phone2Link}`}
               className="flex items-center justify-center gap-3 w-full bg-white border-2 border-[#1a43c4] hover:bg-blue-50 text-[#1a43c4] font-bold py-3 rounded-xl transition-colors text-lg"
             >
               <Phone size={20} />
-              0879 889 800
+              {siteConfig.phone2}
             </a>
           </div>
         </div>

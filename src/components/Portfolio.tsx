@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Camera, Star } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,7 @@ export default function Portfolio() {
     );
   }, []);
 
-  const INSTAGRAM_URL = "https://www.instagram.com/alexcleaning.plovdiv/";
+  const INSTAGRAM_URL = siteConfig.instagram;
 
   return (
     <section ref={sectionRef} className="py-24 bg-slate-50 relative overflow-hidden">

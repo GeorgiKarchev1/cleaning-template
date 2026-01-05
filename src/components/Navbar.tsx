@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, Phone } from "lucide-react";
 import gsap from "gsap";
+import { siteConfig } from "@/config/siteConfig";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,9 +57,9 @@ export default function Navbar() {
     }`}>
       {/* Top Bar for Phone Number - Mobile Only */}
       <div className="bg-[#1a43c4] text-white py-2 text-center text-sm font-medium md:hidden">
-        <a href="tel:+359899299825" className="hover:underline flex items-center justify-center gap-2">
+        <a href={`tel:${siteConfig.phone1Link}`} className="hover:underline flex items-center justify-center gap-2">
           <Phone size={14} className="fill-current" />
-          Обадете се сега: 0899 299 825
+          Обадете се сега: {siteConfig.phone1}
         </a>
       </div>
 
@@ -66,7 +67,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <Link href="/" className="text-2xl font-bold text-[#1a43c4]">
-              AlexCleaning
+              {siteConfig.businessName}
             </Link>
           </div>
           <div className="hidden md:block">
@@ -79,11 +80,11 @@ export default function Navbar() {
               </Link>
               <div className="flex items-center gap-4 ml-4">
                 <div className="flex flex-col text-right">
-                  <a href="tel:+359899299825" className="text-gray-700 font-bold hover:text-[#1a43c4] transition-colors hidden lg:block text-sm">
-                    0899 299 825
+                  <a href={`tel:${siteConfig.phone1Link}`} className="text-gray-700 font-bold hover:text-[#1a43c4] transition-colors hidden lg:block text-sm">
+                    {siteConfig.phone1}
                   </a>
-                  <a href="tel:+359879889800" className="text-gray-700 font-bold hover:text-[#1a43c4] transition-colors hidden lg:block text-sm">
-                    0879 889 800
+                  <a href={`tel:${siteConfig.phone2Link}`} className="text-gray-700 font-bold hover:text-[#1a43c4] transition-colors hidden lg:block text-sm">
+                    {siteConfig.phone2}
                   </a>
                 </div>
                 <Link href="#contact" className="bg-[#1a43c4] text-white hover:bg-[#132f8c] px-5 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
@@ -143,20 +144,20 @@ export default function Navbar() {
         </Link>
         <div className="flex flex-col gap-4 mt-4">
           <a
-            href="tel:+359899299825"
+            href={`tel:${siteConfig.phone1Link}`}
             ref={addToRefs}
             className="bg-[#1a43c4] text-white px-8 py-3 rounded-full flex items-center gap-2 shadow-lg"
           >
             <Phone size={24} />
-            0899 299 825
+            {siteConfig.phone1}
           </a>
           <a
-            href="tel:+359879889800"
+            href={`tel:${siteConfig.phone2Link}`}
             ref={addToRefs}
             className="bg-[#1a43c4] text-white px-8 py-3 rounded-full flex items-center gap-2 shadow-lg"
           >
             <Phone size={24} />
-            0879 889 800
+            {siteConfig.phone2}
           </a>
         </div>
       </div>

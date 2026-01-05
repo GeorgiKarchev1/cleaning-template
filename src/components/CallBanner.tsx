@@ -1,6 +1,7 @@
 "use client";
 
 import { Phone } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
 export default function CallBanner() {
   return (
@@ -22,17 +23,17 @@ export default function CallBanner() {
 
         <div className="flex flex-col gap-2">
           <a
-            href="tel:+359899299825"
+            href={`tel:${siteConfig.phone1Link}`}
             className="bg-white text-[#1a43c4] hover:bg-blue-50 px-8 py-4 rounded-full font-bold text-xl shadow-lg transition-transform transform hover:scale-105 flex items-center gap-3"
           >
             <Phone className="animate-pulse" />
-            0899 299 825
+            {siteConfig.phone1}
           </a>
           <a
-            href="tel:+359879889800"
+            href={`tel:${siteConfig.phone2Link}`}
             className="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-2 rounded-full font-bold text-lg shadow-lg transition-transform transform hover:scale-105 flex items-center justify-center gap-3"
           >
-            0879 889 800
+            {siteConfig.phone2}
           </a>
         </div>
       </div>

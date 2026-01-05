@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Phone, Star } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -101,7 +102,7 @@ export default function Hero() {
             <div ref={badgeRef} className="flex items-center gap-3 mb-6">
               <div className="h-1 w-12 bg-[#1a43c4] rounded-full" />
               <span className="text-[#1a43c4] tracking-widest text-sm font-bold uppercase">
-                Професионално почистване Пловдив
+                {siteConfig.tagline}
               </span>
             </div>
 
@@ -113,7 +114,7 @@ export default function Hero() {
             </h1>
 
             <p ref={descRef} className="text-lg sm:text-xl text-gray-600 mb-8 lg:mb-10 max-w-xl leading-relaxed">
-              Трансформираме вашето пространство с безкомпромисно внимание към детайла и професионална техника Kärcher.
+              {siteConfig.description}
             </p>
 
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4">
@@ -129,17 +130,17 @@ export default function Hero() {
               </Link>
 
               <a
-                href="tel:+359899299825"
+                href={`tel:${siteConfig.phone1Link}`}
                 className="group px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 font-semibold text-lg rounded-full hover:border-[#1a43c4] hover:text-[#1a43c4] transition-all flex items-center justify-center gap-3 shadow-sm"
               >
                 <Phone size={20} className="text-[#1a43c4]" />
-                <span>0899 299 825</span>
+                <span>{siteConfig.phone1}</span>
               </a>
             </div>
 
             <div ref={statsRef} className="mt-10 lg:mt-16 flex flex-wrap items-center gap-6 lg:gap-8 text-gray-500">
               <div className="flex flex-col">
-                <span className="text-2xl lg:text-3xl font-bold text-gray-900">100+</span>
+                <span className="text-2xl lg:text-3xl font-bold text-gray-900">{siteConfig.clientsCount}</span>
                 <span className="text-sm">Доволни клиенти</span>
               </div>
               <div className="w-px h-10 bg-gray-200 hidden sm:block" />
@@ -189,7 +190,7 @@ export default function Hero() {
                       <Star className="text-white fill-white" size={20} />
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900 text-sm sm:text-base">5.0 Рейтинг</p>
+                      <p className="font-bold text-gray-900 text-sm sm:text-base">{siteConfig.rating} Рейтинг</p>
                       <p className="text-xs sm:text-sm text-gray-500">Google Reviews</p>
                     </div>
                   </div>

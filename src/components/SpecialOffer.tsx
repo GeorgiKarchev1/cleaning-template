@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Tag, Sparkles } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
 export default function SpecialOffer() {
   const badgeRef = useRef(null);
@@ -40,7 +41,7 @@ export default function SpecialOffer() {
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
               Нов клиент? <br/>
-              <span className="text-yellow-400">Вземи -20% отстъпка!</span>
+              <span className="text-yellow-400">Вземи -{siteConfig.discountPercent}% отстъпка!</span>
             </h2>
             <p className="text-lg text-blue-100 max-w-xl">
               Възползвайте се от нашата оферта за добре дошли. Важи при първо ползване на услугата за всички видове почистване.
@@ -52,7 +53,7 @@ export default function SpecialOffer() {
               ref={badgeRef}
               className="w-40 h-40 md:w-48 md:h-48 bg-yellow-400 rounded-full flex flex-col items-center justify-center text-[#132f8c] font-black shadow-lg border-4 border-white transform rotate-12"
             >
-              <span className="text-5xl md:text-6xl leading-none">-20%</span>
+              <span className="text-5xl md:text-6xl leading-none">-{siteConfig.discountPercent}%</span>
               <span className="text-sm md:text-base uppercase tracking-wide">Отстъпка</span>
             </div>
           </div>
@@ -60,7 +61,7 @@ export default function SpecialOffer() {
           <div className="flex-1 text-center md:text-right">
             <p className="text-sm text-blue-200 mb-4">Обадете се сега и попитайте за офертата</p>
             <a
-              href="tel:+359899299825"
+              href={`tel:${siteConfig.phone1Link}`}
               className="inline-flex items-center gap-3 bg-white text-[#1a43c4] hover:bg-blue-50 text-xl font-bold px-8 py-4 rounded-full transition-all shadow-lg transform hover:scale-105"
             >
               <Tag className="rotate-90" />

@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { CheckCircle, Zap, ShieldCheck } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +74,7 @@ export default function About() {
 
           <div ref={contentRef}>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Защо да изберете <span className="text-[#1a43c4]">AlexCleaning</span>?
+              Защо да изберете <span className="text-[#1a43c4]">{siteConfig.businessName}</span>?
             </h2>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               Ние сме екип от професионалисти, отдадени на идеята да превърнем вашия дом или офис в място,

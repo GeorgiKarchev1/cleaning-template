@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Phone, Search, Sparkles, Smile } from "lucide-react";
+import { siteConfig } from "@/config/siteConfig";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +12,7 @@ const steps = [
   {
     icon: <Phone size={32} />,
     title: "Свържете се с нас",
-    description: "Обадете се на 0899 299 825 или 0879 889 800 за консултация.",
+    description: `Обадете се на ${siteConfig.phone1} или ${siteConfig.phone2} за консултация.`,
   },
   {
     icon: <Search size={32} />,
