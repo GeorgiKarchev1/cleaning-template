@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,78 +15,86 @@ export default function Hero() {
   const descRef = useRef(null);
   const buttonsRef = useRef(null);
   const statsRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    // Check if mobile
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
 
-      // Set initial states
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+      // Simpler initial states for better performance
       gsap.set([badgeRef.current, titleRef.current, descRef.current, buttonsRef.current, statsRef.current], {
-        y: 60,
+        y: 30,
         opacity: 0,
       });
       gsap.set(imageContainerRef.current, {
-        x: 100,
+        y: 30,
         opacity: 0,
-        scale: 0.9,
       });
 
-      // Staggered intro animation
+      // Faster, simpler animations
       tl.to(badgeRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.5,
       })
       .to(titleRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.8,
-      }, "-=0.5")
+        duration: 0.5,
+      }, "-=0.3")
       .to(descRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.7,
-      }, "-=0.5")
+        duration: 0.4,
+      }, "-=0.3")
       .to(buttonsRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.7,
-      }, "-=0.4")
+        duration: 0.4,
+      }, "-=0.2")
       .to(statsRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.7,
-      }, "-=0.4")
+        duration: 0.4,
+      }, "-=0.2")
       .to(imageContainerRef.current, {
-        x: 0,
+        y: 0,
         opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "power2.out",
-      }, "-=1.2");
+        duration: 0.5,
+      }, "-=0.4");
 
-      // Floating animation for the image
-      gsap.to(imageContainerRef.current, {
-        y: -15,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 1.5,
-      });
+      // Only enable floating animation on desktop
+      if (window.innerWidth >= 1024) {
+        gsap.to(imageContainerRef.current, {
+          y: -10,
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: 1,
+        });
+      }
     }, heroRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Background decorative elements */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-[#1a43c4]/10 rounded-full blur-3xl z-0" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#1a43c4]/5 rounded-full blur-3xl z-0" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-[#1a43c4]/5 to-transparent rounded-full blur-3xl z-0" />
+      {/* Background decorative elements - hidden on mobile for performance */}
+      <div className="hidden md:block absolute top-20 right-20 w-72 h-72 bg-[#1a43c4]/10 rounded-full blur-3xl z-0" />
+      <div className="hidden md:block absolute bottom-20 left-20 w-96 h-96 bg-[#1a43c4]/5 rounded-full blur-3xl z-0" />
+      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-[#1a43c4]/5 to-transparent rounded-full blur-3xl z-0" />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 lg:py-0">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 pb-12 md:pt-28 md:pb-20 lg:py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div ref={contentRef}>
@@ -152,18 +160,18 @@ export default function Hero() {
 
           {/* Right Image */}
           <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
-            <div ref={imageContainerRef} className="relative">
-              {/* Decorative circle behind image */}
-              <div className="absolute -inset-4 lg:-inset-8 bg-gradient-to-br from-[#1a43c4]/20 to-[#3b5ed9]/10 rounded-full blur-2xl" />
+            <div ref={imageContainerRef} className="relative will-change-transform">
+              {/* Decorative circle behind image - simplified on mobile */}
+              <div className="hidden md:block absolute -inset-4 lg:-inset-8 bg-gradient-to-br from-[#1a43c4]/20 to-[#3b5ed9]/10 rounded-full blur-2xl" />
 
               {/* Main image container */}
               <div className="relative w-[280px] h-[350px] sm:w-[350px] sm:h-[440px] md:w-[400px] md:h-[500px] lg:w-[450px] lg:h-[560px] xl:w-[500px] xl:h-[620px]">
-                {/* Decorative border */}
-                <div className="absolute -inset-2 lg:-inset-4 border-2 border-[#1a43c4]/20 rounded-3xl rotate-3" />
-                <div className="absolute -inset-2 lg:-inset-4 border-2 border-[#1a43c4]/10 rounded-3xl -rotate-3" />
+                {/* Decorative border - hidden on mobile for performance */}
+                <div className="hidden md:block absolute -inset-2 lg:-inset-4 border-2 border-[#1a43c4]/20 rounded-3xl rotate-3" />
+                <div className="hidden md:block absolute -inset-2 lg:-inset-4 border-2 border-[#1a43c4]/10 rounded-3xl -rotate-3" />
 
                 {/* Image */}
-                <div className="relative w-full h-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl shadow-[#1a43c4]/20">
+                <div className="relative w-full h-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl md:shadow-[#1a43c4]/20">
                   <Image
                     src="/cleaningguy123.png"
                     alt="Професионално почистване"

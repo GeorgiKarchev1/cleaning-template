@@ -14,22 +14,23 @@ export default function About() {
   const contentRef = useRef(null);
 
   useEffect(() => {
+    // Simpler animation for better mobile performance
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top 70%",
+        start: "top 80%",
       },
     });
 
     tl.fromTo(
       imageRef.current,
-      { x: -50, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
     ).fromTo(
       contentRef.current,
-      { x: 50, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: "power3.out" },
-      "-=0.8"
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" },
+      "-=0.3"
     );
   }, []);
 

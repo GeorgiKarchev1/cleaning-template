@@ -41,17 +41,19 @@ export default function WorkProcess() {
   };
 
   useEffect(() => {
+    // Simpler animation for better mobile performance
     gsap.fromTo(
       stepsRef.current,
-      { y: 50, opacity: 0 },
+      { y: 30, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 0.8,
-        stagger: 0.2,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 85%",
         },
       }
     );

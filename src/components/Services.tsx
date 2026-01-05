@@ -75,14 +75,15 @@ export default function Services() {
 
   useEffect(() => {
     if (cardsRef.current.length > 0) {
+      // Simpler animation for better mobile performance
       gsap.fromTo(
         cardsRef.current,
-        { y: 30, opacity: 0 },
+        { y: 20, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.5,
-          stagger: 0.1,
+          duration: 0.3,
+          stagger: 0.05,
           ease: "power2.out"
         }
       );

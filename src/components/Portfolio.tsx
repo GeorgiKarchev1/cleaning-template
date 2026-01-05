@@ -18,19 +18,19 @@ export default function Portfolio() {
   };
 
   useEffect(() => {
+    // Simpler animation for better mobile performance
     gsap.fromTo(
       itemsRef.current,
-      { y: 50, opacity: 0, scale: 0.9 },
+      { y: 30, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 80%",
         },
       }
     );
@@ -40,9 +40,9 @@ export default function Portfolio() {
 
   return (
     <section ref={sectionRef} className="py-24 bg-slate-50 relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#1a43c4]/10 rounded-full filter blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1a43c4]/5 rounded-full filter blur-3xl" />
+      {/* Decorative Background Elements - hidden on mobile for performance */}
+      <div className="hidden md:block absolute top-0 right-0 w-64 h-64 bg-[#1a43c4]/10 rounded-full filter blur-3xl" />
+      <div className="hidden md:block absolute bottom-0 left-0 w-64 h-64 bg-[#1a43c4]/5 rounded-full filter blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">

@@ -23,20 +23,20 @@ export default function Navbar() {
     if (isOpen) {
       gsap.to(menuRef.current, {
         x: 0,
-        duration: 0.5,
-        ease: "power3.out",
+        duration: 0.3,
+        ease: "power2.out",
         display: "flex",
       });
       gsap.fromTo(
         linksRef.current,
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, delay: 0.2 }
+        { y: 15, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.3, stagger: 0.05, delay: 0.1 }
       );
     } else {
       gsap.to(menuRef.current, {
         x: "100%",
-        duration: 0.5,
-        ease: "power3.in",
+        duration: 0.3,
+        ease: "power2.in",
         display: "none",
       });
     }
