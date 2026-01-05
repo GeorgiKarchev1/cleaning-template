@@ -107,8 +107,8 @@ export default function Hero() {
 
             <h1 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 lg:mb-8 leading-[1.1] tracking-tight">
               Безупречна <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a43c4] to-[#3b5ed9]">
-                Чистота & Стил
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a43c4] to-[#3b5ed9] inline-block pb-1 pr-1" style={{ WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
+                Чистота &amp; Стил
               </span>
             </h1>
 
