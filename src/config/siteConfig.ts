@@ -3,7 +3,7 @@
 
 export const siteConfig = {
   // Основна информация
-  businessName: process.env.NEXT_PUBLIC_BUSINESS_NAME || "AlexCleaning",
+  businessName: process.env.NEXT_PUBLIC_BUSINESS_NAME || "CleanLeaders",
   tagline: process.env.NEXT_PUBLIC_TAGLINE || "Професионално почистване Пловдив",
   description: process.env.NEXT_PUBLIC_DESCRIPTION || "Трансформираме вашето пространство с безкомпромисно внимание към детайла и професионална техника Kärcher.",
 
@@ -12,14 +12,14 @@ export const siteConfig = {
   phone1Link: process.env.NEXT_PUBLIC_PHONE_1_LINK || "+359899299825",
   phone2: process.env.NEXT_PUBLIC_PHONE_2 || "0879 889 800",
   phone2Link: process.env.NEXT_PUBLIC_PHONE_2_LINK || "+359879889800",
-  email: process.env.NEXT_PUBLIC_EMAIL || "info@alexcleaning.bg",
+  email: process.env.NEXT_PUBLIC_EMAIL || "info@cleanleaders.bg",
 
   // Адрес
   city: process.env.NEXT_PUBLIC_CITY || "Пловдив",
   address: process.env.NEXT_PUBLIC_ADDRESS || "Пловдив, България",
 
   // Социални мрежи
-  instagram: process.env.NEXT_PUBLIC_INSTAGRAM || "https://www.instagram.com/alexcleaning.plovdiv/",
+  instagram: process.env.NEXT_PUBLIC_INSTAGRAM || "https://www.instagram.com/cleanleaders/",
   facebook: process.env.NEXT_PUBLIC_FACEBOOK || "",
 
   // Статистики (могат да се променят за всеки клиент)
@@ -31,7 +31,7 @@ export const siteConfig = {
   discountPercent: process.env.NEXT_PUBLIC_DISCOUNT_PERCENT || "20",
 
   // SEO
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://alexcleaning.bg",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://cleanleaders.bg",
 };
 
 export type SiteConfig = typeof siteConfig;

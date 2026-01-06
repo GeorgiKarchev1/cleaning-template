@@ -131,6 +131,9 @@ export default function Hero() {
 
               <a
                 href={`tel:${siteConfig.phone1Link}`}
+
+
+                
                 className="group px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 font-semibold text-lg rounded-full hover:border-[#1a43c4] hover:text-[#1a43c4] transition-all flex items-center justify-center gap-3 shadow-sm"
               >
                 <Phone size={20} className="text-[#1a43c4]" />

@@ -28,11 +28,11 @@ export default function Contact() {
                 +359 879 889 800
               </a>
 
-              <a href="mailto:office@alexcleaning.com" className="flex items-center gap-4 text-lg hover:text-blue-200 transition-colors">
+              <a href="mailto:office@cleanleaders.bg" className="flex items-center gap-4 text-lg hover:text-blue-200 transition-colors">
                 <div className="bg-white/10 p-3 rounded-full">
                   <Mail size={24} />
                 </div>
-                office@alexcleaning.com
+                office@cleanleaders.bg
               </a>
 
               <div className="flex items-center gap-4 text-lg">
@@ -43,7 +43,7 @@ export default function Contact() {
               </div>
 
               <a
-                href="https://www.instagram.com/alexcleaning.plovdiv/"
+                href="https://www.instagram.com/cleanleaders/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 text-lg hover:text-blue-200 transition-colors"
@@ -51,7 +51,7 @@ export default function Contact() {
                 <div className="bg-white/10 p-3 rounded-full">
                   <Instagram size={24} />
                 </div>
-                @alexcleaning.plovdiv
+                @cleanleaders
               </a>
             </div>
           </div>
